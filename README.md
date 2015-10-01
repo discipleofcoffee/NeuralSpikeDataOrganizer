@@ -1,14 +1,14 @@
-%{
+# Neural Spike Data Organizer
+## Run program in MATLAB by executing PSTH_Main_Program_v3
+
 Neural Spike Data Organizer collected using in-vivo single cell electrophysiology for experiments in multisensory integration across multiple stimuli conditions. 
 Searches for processed data tank files, and extracts and organizes information from
 them, for use in analysis using independent scripts.
 Authored by Kshitij Chawla for (Barry) Stein Lab, Wake Forest University, Winston Salem, NC, USA. 2014
 Tested on MATLAB R2013b.
-%}
 
-%{
 Electrophysiology system used: Tucker Davis Technologies (TDT)
-::Experimental Context::
+## ::Experimental Context::
 
 Experimental overview has not been included. For that you can look-up Stein et al.
 
@@ -22,28 +22,28 @@ so some initial units have fewer conditions than later ones. As much as
 possible the program works around the discrepancies, in a manner that will
 minimize the effect on analysis.
 
-::Data structure::
+## ::Data structure::
 
 The data is stored in a structure of arrays. The basic structure is thus:
     units_data.(fieldname)(index) or {index}(subscript) for cells.
 
-units_data = the structure holding all the data.
+- units_data = the structure holding all the data.
 
-Fieldname = the kind of value being stored in them, for example,
+- Fieldname = the kind of value being stored in them, for example,
     trial_length, visual stimulus onset, etc.
 
-index = different case numbers. This merits some explanation. Index is referred to
-as 'Case' or 'Process' in subsequent comments. Using an example:
-if we have 2 neurons aka units, with the first neuron exposed to 12
-stimulus conditions and the second one exposed to 5 stimulus condition, each field of 
-units_data will be an array or cell array of size 17. So the cases are arranged as one big
-sequence and not seggregated based on which unit they belong to (to do
-that, use the unit_num field and logical subscripting).
+- index = different case numbers. This merits some explanation. Index is referred to
+    as 'Case' or 'Process' in subsequent comments. Using an example:
+    if we have 2 neurons aka units, with the first neuron exposed to 12
+    stimulus conditions and the second one exposed to 5 stimulus condition, each field of 
+    units_data will be an array or cell array of size 17. So the cases are arranged as one big
+    sequence and not seggregated based on which unit they belong to (to do
+    that, use the unit_num field and logical subscripting).
  
 So to access case 1, use units_data.(fieldname)(1), example
 units_data.msi(1) will give msi of case 1.
 
-::Notes::
+## ::Notes::
 
 The place_num field is useful because is assigns a unique number to each case,
 which stays the same even a subset of the unit was assigned to another
@@ -79,15 +79,15 @@ execution, such as the error field and file_error_list etc. They are not
 saved anymore to minimize memory consumption on reloading. They weren't
 being used for any other purpose.
 
-::Variable naming scheme ::
+## ::Variable naming scheme ::
 
 (Generally speaking), variables with _(following)_ in their names indicate:
 
-'key' = logical arrays for subscripting or actual indices within a subset
-    of arrays.
-'place' = global indices of the relevant value.
-'uni' = unimodal condition related.
-'av' = multimodal condition related.
-'count' = counter for a specific value in for loops.
-'rel' = relative
-%}
+- 'key' = logical arrays for subscripting or actual indices within a subset
+      of arrays.
+- 'place' = global indices of the relevant value.
+- 'uni' = unimodal condition related.
+- 'av' = multimodal condition related.
+- 'count' = counter for a specific value in for loops.
+- 'rel' = relative
+
