@@ -1,7 +1,7 @@
 # Neural Spike Data Organizer
 ## Run program in MATLAB by executing PSTH_Main_Program_v3
 
-Neural Spike Data Organizer collected using in-vivo single cell electrophysiology for experiments in multisensory integration across multiple stimuli conditions. 
+This program extracts raw data collected using in-vivo single cell electrophysiology for experiments in multisensory integration across multiple stimuli conditions. 
 Searches for processed data tank files, and extracts and organizes information from
 them, for use in analysis using independent scripts.
 Authored by Kshitij Chawla for (Barry) Stein Lab, Wake Forest University, Winston Salem, NC, USA. 2014
